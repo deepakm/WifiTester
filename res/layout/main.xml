@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_width="fill_parent"
-    android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical">
+    android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:theme="@android:style/Theme.Holo" android:orientation="vertical">
 
 <!--  style="?android:attr/listSeparatorTextViewStyle" -->
     <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout5" android:layout_width="match_parent" android:orientation="horizontal">
@@ -11,15 +11,11 @@
     <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:layout_width="match_parent">
         <LinearLayout android:layout_weight="0.33" android:layout_height="match_parent" android:id="@+id/linearLayout2" android:layout_width="0dip" android:orientation="vertical">
             <TextView android:layout_height="wrap_content" android:text="Scan Details" android:layout_width="match_parent" style="?android:attr/listSeparatorTextViewStyle" android:id="@+id/textView1"></TextView>
-            <ScrollView android:id="@+id/scrollView1" android:layout_width="match_parent" android:layout_height="270dip">
-                <TextView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/tvScan"></TextView>
-            </ScrollView>
+            <ListView android:layout_width="match_parent" android:id="@+id/lvScan" android:isScrollContainer="true" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbars="vertical" android:layout_height="270dip"></ListView>
         </LinearLayout>
         <LinearLayout android:layout_weight="0.33" android:layout_height="match_parent" android:id="@+id/linearLayout3" android:layout_width="0dip" android:orientation="vertical">
             <TextView android:layout_height="wrap_content" android:text="Roaming History" android:layout_width="match_parent" style="?android:attr/listSeparatorTextViewStyle" android:id="@+id/textView2"></TextView>
-            <ScrollView android:id="@+id/scrollView2" android:layout_width="match_parent" android:layout_height="270dip">
-                <TextView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/tvRoaming"></TextView>
-            </ScrollView>
+            <ListView android:layout_width="match_parent" android:id="@+id/lvRoam" android:layout_height="270dip"></ListView>
         </LinearLayout>
         <LinearLayout android:layout_weight="0.33" android:layout_height="match_parent" android:id="@+id/linearLayout4" android:layout_width="0dip" android:orientation="vertical">
             <TextView android:layout_height="wrap_content" android:text="Event History" android:layout_width="match_parent" style="?android:attr/listSeparatorTextViewStyle" android:id="@+id/textView5"></TextView>
@@ -37,9 +33,10 @@
         <Button android:layout_height="wrap_content" android:id="@+id/bStop" android:text="Stop" android:layout_width="150dip"></Button>
         <CheckBox android:layout_height="wrap_content" android:id="@+id/cbAutoScroll" android:layout_width="wrap_content" android:text="Scroll Automatically" android:checked="true"></CheckBox>
     </LinearLayout>
-    <LinearLayout android:id="@+id/linearLayout7" android:layout_width="match_parent" android:layout_height="match_parent">
-        <ScrollView android:layout_width="match_parent" android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@+id/svRun" android:layout_weight="0.99" android:layout_height="match_parent" android:verticalScrollbarPosition="right" android:scrollbarStyle="insideOverlay" android:scrollbars="vertical">
+    <LinearLayout android:id="@+id/linearLayout7" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
+        <ScrollView android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@+id/svRun" android:layout_height="match_parent" android:verticalScrollbarPosition="right" android:scrollbarStyle="insideOverlay" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_weight="0.80">
             <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/tvRun"></TextView>
         </ScrollView>
+        <deep.wifi.WifiTester.GraphView android:layout_height="match_parent" android:layout_width="match_parent" android:layout_weight="0.45" android:id="@+id/gvGraph"></deep.wifi.WifiTester.GraphView>
     </LinearLayout>
 </LinearLayout>
